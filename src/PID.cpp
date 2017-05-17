@@ -19,7 +19,7 @@ double PID::Update(double error) {
   }
   last_err_ = error;
   last_err_valid_ = true;
-  return kp_ * error + ki_ * integral_err_ + kd_ * derivative_error;
+  return -(kp_ * error + ki_ * integral_err_ + kd_ * derivative_error);
 }
 
 void PID::Reset() {
