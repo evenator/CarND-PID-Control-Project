@@ -18,6 +18,7 @@ double PID::Update(double error) {
     derivative_error = error - last_err_;
   }
   last_err_ = error;
+  integral_err_ += error;
   last_err_valid_ = true;
   return -(kp_ * error + ki_ * integral_err_ + kd_ * derivative_error);
 }
